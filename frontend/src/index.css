@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-100;
+}
+
+.costum_shadow {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* User table */
+
+.user-table {
+  @apply bg-white;
+}
+
+.user-table th {
+  @apply border text-sm py-1 font-medium;
+}
+.user-table td {
+  @apply border text-center text-sm py-2;
+}
+
+/* User table */
+
+/* scroll */
+
+.scroollbar-none::-webkit-scrollbar {
+  display: none;
+}
