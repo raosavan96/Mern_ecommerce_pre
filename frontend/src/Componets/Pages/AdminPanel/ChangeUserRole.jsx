@@ -31,7 +31,6 @@ function ChangeUserRole({ value, onClose, callFunc }) {
           onClose();
           callFunc();
         }
-      
       });
   }
 

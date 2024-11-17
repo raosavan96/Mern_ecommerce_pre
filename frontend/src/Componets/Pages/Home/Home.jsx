@@ -32,6 +32,12 @@ function Home() {
             category={"processor"}
           />
         </div>
+        <div>
+          <HorizontalCardProduct
+            hading={"Top's Phones"}
+            category={"mobiles"}
+          />
+        </div>
 
         <div>
           <VerticalCardProduct hading={"Top's Mouse"} category={"mouse"} />

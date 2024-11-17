@@ -9,6 +9,8 @@ import AllUsers from "../Componets/Pages/AdminPanel/AllUsers";
 import AllProducts from "../Componets/Pages/AdminPanel/AllProducts";
 import CategoryProduct from "../Componets/Pages/Home/CategoryList/CategoryProduct";
 import SingleProductData from "../Componets/Pages/SingleProductData/SingleProductData";
+import AddCartSec from "../Componets/Pages/AddCartSec/AddCartSec";
+import Search from "../Componets/SearchProducts/Search";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "single-product/:spId",
         element: <SingleProductData />
+      },
+      {
+        path: "cart",
+        element: <AddCartSec />
+      },
+      {
+        path: "/search",
+        element: <Search />
       },
       {
         path: "admin-panel",

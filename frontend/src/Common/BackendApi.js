@@ -60,6 +60,30 @@ const summaryApi = {
   singleProductData: {
     url: `${backendDomin}/api/sengle-product-data`,
     method: "POST"
+  },
+  addCartProduct: {
+    url: `${backendDomin}/api/add-cart-product`,
+    method: "POST"
+  },
+  countCartProduct: {
+    url: `${backendDomin}/api/count-cart-product`,
+    method: "GET"
+  },
+  viewCartProduct: {
+    url: `${backendDomin}/api/view-cart-product`,
+    method: "GET"
+  },
+  updateProductCard: {
+    url: `${backendDomin}/api/update-cart-product`,
+    method: "POST"
+  },
+  deleteProductCart: {
+    url: `${backendDomin}/api/delete-cart-product`,
+    method: "DELETE"
+  },
+  searchProduct: {
+    url: `${backendDomin}/api/search-product`,
+    method: "GET"
   }
 };
 

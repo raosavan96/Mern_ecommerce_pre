@@ -37,7 +37,7 @@ exports.userLoginController = async (req, res) => {
       };
 
       const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, {
-        expiresIn: 60 * 60 * 8
+        expiresIn: 60 * 60 *8
       });
 
       const tokenOption = {

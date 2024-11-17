@@ -100,7 +100,7 @@ function AdminEditProduct({ onClose, editData }) {
         selling
       });
     }
-  }, [editData]);
+  }, []);
 
   return (
     <>

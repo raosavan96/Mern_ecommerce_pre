@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../Logo/Logo";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import summaryApi from "../../Common/BackendApi";
 import { toast } from "react-toastify";
 import { setUserInfo } from "../../features/userSlice/userSlice";
 import Role from "../../Common/Role";
+import Context from "../../Common/context";
 
 function Appbar() {
+  const navig = useNavigate();
   const [menuDisplay, setMenuDisplay] = useState(false);
   const userInfo = useSelector((state) => state?.userInfo?.user);
   const dispatch = useDispatch();
+  const { cartProduct } = useContext(Context);
 
   const handleLogout = async () => {
     fetch(summaryApi.userlogout.url, {
@@ -34,6 +37,16 @@ function Appbar() {
       });
   };
 
+  const handleSearch = (e) => {
+    const { value } = e.target;
+
+    if (value) {
+      navig(`/search?q=${value}`);
+    } else {
+      navig("/search");
+    }
+  };
+
   return (
     <>
       <header className="h-16 shadow-md bg-white fixed w-full z-40">
@@ -48,6 +61,7 @@ function Appbar() {
               type="text"
               placeholder="Search product here..."
               className="w-full outline-none  "
+              onChange={handleSearch}
             />
             <div className="text-lg  min-w-[50px] flex items-center text-white justify-center rounded-r-3xl h-8 bg-cyan-500">
               <GrSearch />
@@ -75,7 +89,7 @@ function Appbar() {
               )}
 
               {menuDisplay && (
-                <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg  rounded-lg md:block hidden ">
+                <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg  rounded-lg md:block  ">
                   <nav>
                     {userInfo?.role === Role.ADMIN && (
                       <Link
@@ -94,17 +108,17 @@ function Appbar() {
             </div>
 
             {userInfo?._id && (
-              <div className="text-xxl cursor-pointer relative">
+              <Link to={"/cart"} className="text-xl cursor-pointer relative">
                 <span>
                   <FaCartShopping />
                 </span>
-                <div className="bg-cyan-500 w-4 h-4 rounded-full flex justify-center items-center text-center text-white absolute -top-2 -right-3">
-                  <p className="text-xs p-1">0</p>
+                <div className="bg-red-500 w-4 h-4 rounded-full flex justify-center items-center text-center text-white absolute -top-2 -right-3">
+                  <p className="text-[10px] font-bold">{cartProduct}</p>
                 </div>
-              </div>
+              </Link>
             )}
 
-            <div>
+            <div className="ms-4">
               {userInfo?._id ? (
                 <button
                   onClick={handleLogout}

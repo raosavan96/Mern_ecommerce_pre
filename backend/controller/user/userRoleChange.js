@@ -1,3 +1,4 @@
+const uploadProductPermisson = require("../../helpers/permission");
 const userModel = require("../../models/userModel");
 
 exports.userRoleController = async (req, res) => {
@@ -26,6 +27,11 @@ exports.userRoleUpdatedController = async (req, res) => {
   try {
     const { uid } = req.params;
     const { name, email, role } = req.body;
+    const sessionUserId = req.user_id._id;
+
+    if (!uploadProductPermisson(sessionUserId)) {
+      throw new Error("Permission denied");
+    }
 
    const userRoleUp = await userModel.findByIdAndUpdate(uid, {
       name: name,

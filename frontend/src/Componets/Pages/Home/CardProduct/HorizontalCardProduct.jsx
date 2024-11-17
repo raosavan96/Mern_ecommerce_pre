@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import fetchCategoryWiseProduct from "../../../../Helpers/fetchCategoryWiseProduct";
 import displayINRcurrency from "../../../../Helpers/displayCurrency";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import ContentLoader from "react-content-loader";
 import { Link } from "react-router-dom";
+import addCartProduct from "../../../../Helpers/addToCart";
+import Context from "../../../../Common/context";
 
 function HorizontalCardProduct({ category, hading }) {
+  const {  fetchUserAddToCart } = useContext(Context);
   const [hscrole, setHscrole] = useState(0);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -70,7 +73,10 @@ function HorizontalCardProduct({ category, hading }) {
                 style={{ transform: `translateX(-${hscrole * 25}%)` }}
               >
                 {data.map((value, index) => (
-                  <div key={index} className="w-full min-w-[280px]  md:min-w-[305px] mt-3 max-w-[280px] md:max-w-[305px] bg-white rounded-sm shadow-lg h-36 flex">
+                  <div
+                    key={index}
+                    className="w-full min-w-[280px]  md:min-w-[305px] mt-3 max-w-[280px] md:max-w-[305px] bg-white rounded-sm shadow-lg h-36 flex"
+                  >
                     <Link
                       to={`/single-product/${value?._id}`}
                       className="bg-slate-200 p-4 flex justify-center items-center"
@@ -99,11 +105,17 @@ function HorizontalCardProduct({ category, hading }) {
                         </p>
                       </div>
                       <div>
-                        <button className="bg-cyan-500 me-2 text-white py-0.5 mt-5 px-3 text-sm  rounded-full">
+                        <button
+                          onClick={async() => {
+                           await addCartProduct(value?._id);
+                            fetchUserAddToCart()
+                          }}
+                          className="bg-cyan-500 me-2 text-white py-0.5 mt-5 md:px-3 text-xs px-2 md:text-sm  rounded-full"
+                        >
                           Add Cart
                         </button>
                         <Link to={`/single-product/${value?._id}`}>
-                          <button className="bg-lime-500 text-white py-0.5 mt-5 px-3 text-sm  rounded-full">
+                          <button className="bg-lime-500 text-white py-0.5 md:px-3 text-xs px-2 md:text-sm  rounded-full">
                             More
                           </button>
                         </Link>

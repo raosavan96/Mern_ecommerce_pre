@@ -8,7 +8,7 @@ import Context from "../../../Common/context";
 
 function Login() {
   const navig = useNavigate();
-  const { fetchUserDetails } = useContext(Context);
+  const { fetchUserDetails, fetchUserAddToCart } = useContext(Context);
   const [showPass, setShowPass] = useState("password");
   const [loginData, setLoginData] = useState({
     email: "",
@@ -41,6 +41,7 @@ function Login() {
           toast.success(res.message);
           navig("/");
           fetchUserDetails();
+          fetchUserAddToCart();
         }
         if (res.success === false) {
           toast.error(res.message);

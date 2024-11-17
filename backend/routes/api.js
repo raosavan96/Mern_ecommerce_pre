@@ -29,6 +29,20 @@ const {
 const {
   singleProductController
 } = require("../controller/product/singleProductData");
+const {
+  addCartProductController
+} = require("../controller/user/addCartProduct");
+const {
+  countAddToCartProduct
+} = require("../controller/user/countAddToCartProduct");
+const { veiwCartProduct } = require("../controller/user/viewCartProduct");
+const {
+  updateAddCartProduct
+} = require("../controller/user/updateAddCartProduct");
+const { deleteCartProduct } = require("../controller/user/deleteCartProduct");
+const {
+  searchProductController
+} = require("../controller/product/searchProduct");
 
 // Admin panel
 
@@ -55,13 +69,29 @@ router.post("/login", userLoginInfo.userLoginController);
 router.get("/user-details", authToken, userDetailsMain.userDatialsController);
 router.get("/user-logout", userLogoutController.userLogoutController);
 
-// Home page
+// All
 
 router.get("/get-category", getCategoryController);
 
 router.post("/category-wise-product", CategoryWiseProductController);
 router.post("/sengle-product-data", singleProductController);
 
-// Home page
+// All
+
+// user add to cart
+
+router.post("/add-cart-product", authToken, addCartProductController);
+router.post("/update-cart-product", authToken, updateAddCartProduct);
+router.get("/count-cart-product", authToken, countAddToCartProduct);
+router.get("/view-cart-product", authToken, veiwCartProduct);
+router.delete("/delete-cart-product/:dcid", authToken, deleteCartProduct);
+
+// user add to cart
+
+// Search product
+
+router.get("/search-product", searchProductController);
+
+// Search product
 
 module.exports = router;
