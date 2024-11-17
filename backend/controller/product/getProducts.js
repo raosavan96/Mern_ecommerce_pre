@@ -4,7 +4,7 @@ exports.getProductController = async (req, res) => {
   try {
     const allUploadProducts = await uploadProduct
       .find()
-      .sort({ createdAt: -1 });
+   
 
     res.status(200).json({
       dataProducts: allUploadProducts,

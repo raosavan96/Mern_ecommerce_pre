@@ -43,6 +43,7 @@ const { deleteCartProduct } = require("../controller/user/deleteCartProduct");
 const {
   searchProductController
 } = require("../controller/product/searchProduct");
+const { fillterProductController } = require("../controller/product/fillter");
 
 // Admin panel
 
@@ -93,5 +94,11 @@ router.delete("/delete-cart-product/:dcid", authToken, deleteCartProduct);
 router.get("/search-product", searchProductController);
 
 // Search product
+
+// fellter
+
+router.post("/fillter-product", fillterProductController);
+
+// fellter
 
 module.exports = router;
