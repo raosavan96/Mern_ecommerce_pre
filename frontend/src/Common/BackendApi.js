@@ -1,4 +1,4 @@
-const backendDomin = "http://localhost:5000";
+const backendDomin = "https://mern-ecommerce-pre.onrender.com";
 
 const summaryApi = {
   signUP: {
