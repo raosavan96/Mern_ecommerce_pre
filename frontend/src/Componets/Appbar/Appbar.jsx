@@ -28,6 +28,7 @@ function Appbar() {
         if (res.success) {
           toast.success(res.message);
           dispatch(setUserInfo(null));
+          navig("/");
         }
       })
       .catch((error) => {

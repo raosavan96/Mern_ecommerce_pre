@@ -21,7 +21,6 @@ function Search() {
       });
   };
 
-  console.log(searchProduct);
 
   useEffect(() => {
     fetchProduct();
@@ -39,7 +38,7 @@ function Search() {
         {searchProduct.length !== 0 && !loading && (
           <>
             <p className="text-center">Search Result: {searchProduct.length}</p>
-            <div className="grid grid-cols-4 gap-4 mt-5">
+            <div className="grid grid-cols-12 gap-4 mt-5">
               {searchProduct.map((value, index) => (
                 <SearchCard value={value} key={index} />
               ))}

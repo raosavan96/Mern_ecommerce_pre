@@ -4,7 +4,6 @@ const { findByIdAndDelete } = require("../../models/addCartProductModel");
 exports.deleteCartProduct = async (req, res) => {
   try {
     const { dcid } = req.params;
-    console.log(dcid);
 
     const deleteCartProduct = await addCartProductModel.findByIdAndDelete(dcid);
 

@@ -104,7 +104,7 @@ function AdminEditProduct({ onClose, editData }) {
 
   return (
     <>
-      <div className=" w-full h-full fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center z-10 bg-slate-800 bg-opacity-80">
+      <div className=" w-full mt-5 h-full fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center z-10 bg-slate-800 bg-opacity-80">
         <div className="bg-white  rounded-lg w-full max-w-xl h-full max-h-[80%] relative">
           <div className="w-full h-full relative z-0">
             <div className="w-full h-full overflow-auto pt-2 px-4 pb-5">

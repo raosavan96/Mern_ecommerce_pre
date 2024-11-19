@@ -59,6 +59,9 @@ const productCategory = [
     label: "Watches",
     value: "watches"
   }
+
+
+
 ];
 
 export default productCategory;

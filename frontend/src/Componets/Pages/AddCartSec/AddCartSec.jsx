@@ -14,7 +14,7 @@ function AddCartSec() {
   const loadingCount = new Array(cartProduct).fill(null);
 
   const fetchCartData = async () => {
-    setLoading(true);
+    // setLoading(true);
     fetch(summaryApi.viewCartProduct.url, {
       method: summaryApi.viewCartProduct.method,
       credentials: "include"
@@ -22,7 +22,7 @@ function AddCartSec() {
       .then((res) => res.json())
       .then((res) => {
         setCartData(res?.allCartProduct);
-        setLoading(false);
+        // setLoading(false);
       });
   };
 
@@ -102,7 +102,6 @@ function AddCartSec() {
     fetchCartData();
   }, []);
 
-  console.log(cartData?.productId?.brandName);
 
   return (
     <>

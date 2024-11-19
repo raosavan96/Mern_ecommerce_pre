@@ -2,7 +2,8 @@ const uploadProduct = require("../../models/uploadProduct");
 
 exports.fillterProductController = async (req, res) => {
   try {
-    const categoryList = req.body?.category;
+    const categoryList = req?.body?.category || [];
+
     const product = await uploadProduct.find({
       category: {
         $in: categoryList
@@ -15,8 +16,6 @@ exports.fillterProductController = async (req, res) => {
       error: false,
       message: "Fellter..."
     });
-
-    console.log(categoryList);
   } catch (error) {
     if (!res.headersSent) {
       return res.status(500).json({

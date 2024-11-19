@@ -6,12 +6,11 @@ import addCartProduct from "../../Helpers/addToCart";
 import Context from "../../Common/context";
 
 function SearchCard({ value }) {
-
   const { fetchUserAddToCart } = useContext(Context);
 
   return (
     <>
-      <div className="col-span-4 sm:col-span-2 w-full md:col-span-1 mb-4 bg-white rounded-sm shadow-lg h-[350px] mx-auto">
+      <div className="col-span-12 sm:col-span-6 w-full md:col-span-4 lg:col-span-3 mb-4 bg-white rounded-sm shadow-lg h-[350px] mx-auto">
         <Link to={`/single-product/${value?._id}`} onClick={scrollTop}>
           <div className="bg-slate-200 p-4 flex justify-center items-center">
             <img

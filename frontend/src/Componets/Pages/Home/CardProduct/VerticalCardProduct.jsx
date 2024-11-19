@@ -34,7 +34,7 @@ function VerticalCardProduct({ category, hading }) {
   return (
     <>
       <div className="container mx-auto p-4 relative h-auto">
-        <h2 className="text-2xl font-semibold py-3">{hading}</h2>
+        <h2 className="text-2xl font-semibold py-3 capitalize">{hading}</h2>
         {loading ? (
           loadingList.map((_, index) => (
             <ContentLoader viewBox="0 0 380 70" key={index}>
@@ -46,11 +46,11 @@ function VerticalCardProduct({ category, hading }) {
         ) : (
           <div>
             <div className="overflow-x-scroll gap-6 scroollbar-none">
-              <div className="w-full h-full transition-all duration-1000 grid grid-cols-4 gap-4">
+              <div className="w-full h-full transition-all duration-1000 grid grid-cols-12 gap-4">
                 {data.map((value, index) => (
                   <div
                     key={index}
-                    className="col-span-4 sm:col-span-2 w-full md:col-span-1 mb-4 bg-white rounded-sm shadow-lg h-[350px] mx-auto"
+                    className="col-span-12 sm:col-span-6 w-full md:col-span-4 lg:col-span-3 mb-4 bg-white rounded-sm shadow-lg h-[350px] mx-auto"
                   >
                     <Link
                       to={`/single-product/${value?._id}`}

@@ -4,6 +4,11 @@ const userModel = require("../../models/userModel");
 exports.userRoleController = async (req, res) => {
   try {
     const { rid } = req.params;
+    const sessionUserId = req.user_id._id;
+
+    if (!uploadProductPermisson(sessionUserId)) {
+      throw new Error("Permission denied");
+    }
     const roleUser = await userModel.findById(rid);
 
     res.status(200).json({
@@ -33,7 +38,7 @@ exports.userRoleUpdatedController = async (req, res) => {
       throw new Error("Permission denied");
     }
 
-   const userRoleUp = await userModel.findByIdAndUpdate(uid, {
+    const userRoleUp = await userModel.findByIdAndUpdate(uid, {
       name: name,
       email: email,
       role: role

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 function ZoomProductImg({ zoomImg, imgZoom }) {
   return (
@@ -10,7 +11,7 @@ function ZoomProductImg({ zoomImg, imgZoom }) {
         
         
           backgroundRepeat: "no-repeat",
-          backgroundPosition: `${imgZoom.x * 300}% ${imgZoom.y * 130}%`
+          backgroundPosition: `${imgZoom.x * -300}% ${imgZoom.y * 130}%`
         }}
       ></div>
     </>

@@ -6,8 +6,7 @@ exports.updateAddCartProduct = async (req, res) => {
     
     const addToCartProductId = req.body.id;
     const qty = req.body.quantity;
-    console.log(addToCartProductId)
-    console.log(qty)
+ 
 
     const updateProductData = await addCartProductModel.findByIdAndUpdate(
       addToCartProductId,

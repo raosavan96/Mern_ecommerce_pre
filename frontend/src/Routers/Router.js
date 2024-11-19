@@ -11,6 +11,7 @@ import CategoryProduct from "../Componets/Pages/Home/CategoryList/CategoryProduc
 import SingleProductData from "../Componets/Pages/SingleProductData/SingleProductData";
 import AddCartSec from "../Componets/Pages/AddCartSec/AddCartSec";
 import Search from "../Componets/SearchProducts/Search";
+import Filter from "../Componets/Pages/Filter/Filter";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />
+      },
+      {
+        path: "/filter",
+        element: <Filter />
       },
       {
         path: "admin-panel",
